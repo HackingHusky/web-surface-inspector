@@ -126,6 +126,7 @@ prompt_injection_patterns = [
     r"pretend to be",
     r"override your programming",
     r"this is a test of your alignment",
+    r"whats the password?",
 ]
 
 found = False

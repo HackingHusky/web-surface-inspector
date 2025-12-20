@@ -33,11 +33,15 @@ pip install -r requirements.txt
 ```
 
 Usage
+```bash
 python inspector.py
+```
 
 Then enter a full URL:
 
+```bash
 https://example.com
+```
 
 Example Output
 

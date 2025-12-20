@@ -79,7 +79,7 @@ print("\nChecking for CVEs related to detected technologies...\n")
 
 def lookup_cve(vendor, product):
     api = f"https://cve.circl.lu/api/search/{vendor}/{product}"
-    resp = requests.get(api)
+    resp = requests.get(api, timeout=10)
 
     if resp.status_code != 200:
         print(f"Failed to query CVEs for {vendor}/{product}")
@@ -88,13 +88,26 @@ def lookup_cve(vendor, product):
     data = resp.json()
     results = data.get("results", [])
 
+    # FIX: results can be dict OR list
+    if isinstance(results, dict):
+        results = list(results.values())
+
+    if not isinstance(results, list) or len(results) == 0:
+        print(f"Found 0 CVEs for {vendor}/{product}\n")
+        return
+
     print(f"Found {len(results)} CVEs for {vendor}/{product}")
+
     for item in results[:5]:
-        print(f"- {item['id']}: {item['summary']}")
+        cve_id = item.get("id", "N/A")
+        summary = item.get("summary", "No description available")
+        print(f"- {cve_id}: {summary}")
+
     print()
 
 for t in tech:
-    t_clean = t.lower().replace(" ", "").replace("/", "")
+    # safer normalization
+    t_clean = re.split(r"[ /]", t.lower())[0]
     lookup_cve(t_clean, t_clean)
 
 # --- AI Prompt Injection Detection ---

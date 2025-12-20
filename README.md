@@ -30,3 +30,28 @@ This script performs:
 git clone https://github.com/YOUR_USERNAME/web-surface-inspector.git
 cd web-surface-inspector
 pip install -r requirements.txt
+```
+
+Usage
+python inspector.py
+
+Then enter a full URL:
+
+https://example.com
+
+Example Output
+
+Server headers
+
+Technology fingerprints
+
+Security header audit
+
+CVE summaries
+
+Prompt-injection warnings
+
+Legal & Ethical Use
+
+Only scan systems you own or have explicit permission to test.
+This tool does not exploit vulnerabilities—it only inspects publicly accessible data.

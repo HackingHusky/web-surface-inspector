@@ -27,7 +27,7 @@ This script performs:
 ## Installation
 
 ```bash
-git clone [https://github.com/HackingHusky/web-surface-inspector]
+git clone https://github.com/HackingHusky/web-surface-inspector
 cd web-surface-inspector
 pip install -r requirements.txt
 ```

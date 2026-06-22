@@ -1,61 +1,79 @@
 # Web Surface Inspector
 
-A lightweight reconnaissance and security-inspection tool for URLs.
-
-This script performs:
-- HTTP header inspection
-- Basic technology fingerprinting
-- Security header auditing
-- CSV content preview
-- CVE lookups (via CIRCL)
-- AI prompt-injection pattern detection
-
-⚠️ Intended for **educational, defensive, and authorized testing only**.
+An automated web reconnaissance and security auditing utility engineered for target surface analysis. This utility aggregates critical configuration data from a targeted URL, fingerprints remote application stacks, evaluates security defensive layers, and inspects web page bodies for Large Language Model (LLM) prompt-injection patterns.
 
 ---
 
-## Features
+## Technical Capabilities
 
-- Detects missing security headers
-- Extracts server / framework hints
-- Queries public CVE databases
-- Flags common prompt-injection strings in HTML
-- Inspects CSV files safely
+*   **HTTP Header Inspection:** Enumerates active response headers to catalog remote infrastructure parameters.
+*   **Security Header Auditing:** Programmatically evaluates the presence and compliance of defensive headers (e.g., CSP, HSTS, X-Frame-Options).
+*   **Application Stack Fingerprinting:** Parses HTML and header hints to determine underlying servers, frameworks, and language runtimes.
+*   **Public CVE Enrichment:** Queries public vulnerability registries via the CIRCL API to correlate discovered component versions with historical vulnerabilities.
+*   **LLM Prompt-Injection Analysis:** Scans client-side structural content to detect anomalous text strings or instructions optimized to compromise downstream AI integrations.
+*   **Isolated Data Triage:** Includes a structured container layer to safely preview remote CSV file content structures.
 
 ---
 
 ## Installation
 
+Ensure your host environment has Python 3.8 or higher installed before provisioning dependencies.
+
 ```bash
-git clone https://github.com/HackingHusky/web-surface-inspector
+# Clone the resource repository
+git clone https://github.com
 cd web-surface-inspector
+
+# Provision required library dependencies
 pip install -r requirements.txt
 ```
 
-Usage
+---
+
+## Operational Guide
+
+The utility operates as an interactive command-line interface. 
+
+### Execution Command
 ```bash
 python inspector.py
 ```
 
-Then enter a full URL:
+### Usage Workflow
+1. Initialize the script within your terminal environment.
+2. Provide a fully qualified target URL when prompted:
+   ```text
+   Enter target URL: https://example.com
+   ```
 
-```bash
-https://example.com
+### Operational Output Schema
+The tool generates a structured, multi-tier analysis report directly within the terminal interface covering:
+*   **Infrastructure Headers:** Passive fingerprinting data.
+*   **Defensive Compliance Matrix:** Detailed flags detailing missing protection configurations.
+*   **Threat Enrichment:** Publicly documented CVE summaries matching identified technology fingerprints.
+*   **AI Input Validation Flags:** Categorized warnings pointing to suspected prompt-injection structural patterns found in the source code.
+
+---
+
+## System Requirements
+
+The application depends on the external third-party components listed within the local configuration manifest:
+```text
+# requirements.txt
+requests>=2.25.0
+beautifulsoup4>=4.9.0
 ```
 
-Example Output
+---
 
-Server headers
+## Regulatory Compliance & Legal Mandate
 
-Technology fingerprints
+This application is strictly engineered as administrative scaffolding for authorized vulnerability lifecycle management, security posture validation, and defensive software engineering. This tool does not feature active exploitation capabilities; it functions entirely via passive and structural analysis of publicly exposed data facets. 
 
-Security header audit
+Running automated analysis against endpoints without prior, explicit written authorization from the system operator violates local and international computer protection statutes. The authors assume no legal accountability or financial liability for improper configuration or reckless deployment of this tool.
 
-CVE summaries
+---
 
-Prompt-injection warnings
+## License
 
-Legal & Ethical Use
-
-Only scan systems you own or have explicit permission to test.
-This tool does not exploit vulnerabilities—it only inspects publicly accessible data.
+This project is open-source software distributed under the terms of the **MIT License**. For complete permission and redistribution terms, refer to the accompanying `LICENSE` file.

@@ -1,5 +1,5 @@
 # Web Surface Inspector
-<img width="1376" height="768" alt="image" src="https://github.com/user-attachments/assets/6bada56d-2b40-43f6-a64f-3d6a524b9713" />
+
 
 
 An automated web reconnaissance and security auditing utility engineered for target surface analysis. This utility aggregates critical configuration data from a targeted URL, fingerprints remote application stacks, evaluates security defensive layers, and inspects web page bodies for Large Language Model (LLM) prompt-injection patterns.

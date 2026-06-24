@@ -1,4 +1,5 @@
 # Web Surface Inspector
+<img width="1376" height="768" alt="image" src="https://github.com/user-attachments/assets/69b8d6fe-2d9e-4c20-86de-6e3ec64c3a79" />
 
 
 
